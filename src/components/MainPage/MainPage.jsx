@@ -1,7 +1,8 @@
 import React from 'react';
+import { Wrapper } from './MainPage.styled';
 
 function MainPage() {
-  return <div>MainPage</div>;
+  return <Wrapper>MainPage</Wrapper>;
 }
 
 export default MainPage;
