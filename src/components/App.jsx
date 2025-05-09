@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Header from './Header/Header';
+// import Header from './Header/Header';
 import { MainPage } from './MainPage/MainPage';
-import { Container } from './global.styled';
+// import { Container } from './global.styled';
 import { getProductCategory } from 'API/api';
-import { CategoryList } from './CategoryList/CategoryList';
+// import { CategoryList } from './CategoryList/CategoryList';
 import { useEffect } from 'react';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,15 +30,9 @@ export const App = () => {
 
   return (
     <div>
-      <Header />
-      <Container>
-        <CategoryList
-          categories={categories}
-          error={error}
-          isLoading={isLoading}
-        />
+      <Layout categories={categories} error={error} isLoading={isLoading}>
         <MainPage categories={categories} isLoading={isLoading} />
-      </Container>
+      </Layout>
     </div>
   );
 };
