@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 export const Wrapper = styled.ul`
   width: 100%;
+  min-height: 230px;
   padding: 20px;
   border: 1px solid black;
   display: flex;
@@ -12,9 +13,9 @@ export const Wrapper = styled.ul`
 `;
 
 export const ProductItem = styled.li`
-  max-width: 150px;
+  max-width: 200px;
   width: 100%;
-  height: 180px;
+  height: 230px;
   display: flex;
   flex-direction: column;
   justify-content: center;

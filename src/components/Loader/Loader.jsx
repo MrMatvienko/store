@@ -1,18 +1,18 @@
 import React from 'react';
 import { LoaderContainer } from './Loader.styled';
-import { Hourglass } from 'react-loader-spinner';
+import { Rings } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (
     <LoaderContainer>
-      <Hourglass
+      <Rings
         visible={true}
         height="80"
         width="80"
-        ariaLabel="hourglass-loading"
+        color="#050505"
+        ariaLabel="rings-loading"
         wrapperStyle={{}}
         wrapperClass=""
-        colors={['#306cce', '#72a1ed']}
       />
     </LoaderContainer>
   );

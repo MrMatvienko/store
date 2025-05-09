@@ -9,17 +9,17 @@ import { useEffect } from 'react';
 export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [products, setProducts] = useState(null);
+  const [categories, setCategories] = useState(null);
 
   useEffect(() => {
     const getAllCategory = async () => {
+      setIsLoading(true);
       try {
         const data = await getProductCategory();
         const firstFive = data.slice(0, 5);
-        setIsLoading(true);
-        setProducts(firstFive);
+        setCategories(firstFive);
       } catch (error) {
-        setError(error.response.data);
+        setError(error.response.data || error.message);
       } finally {
         setIsLoading(false);
       }
@@ -31,8 +31,12 @@ export const App = () => {
     <div>
       <Header />
       <Container>
-        <CategoryList products={products} error={error} isLoading={isLoading} />
-        <MainPage products={products} isLoading={isLoading} />
+        <CategoryList
+          categories={categories}
+          error={error}
+          isLoading={isLoading}
+        />
+        <MainPage categories={categories} isLoading={isLoading} />
       </Container>
     </div>
   );
