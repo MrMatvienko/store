@@ -15,12 +15,9 @@ export const App = () => {
     const getAllCategory = async () => {
       try {
         const data = await getProductCategory();
-        console.log(data);
         const firstFive = data.slice(0, 5);
-        console.log('FISRST FIVE:', firstFive);
         setProducts(firstFive);
       } catch (error) {
-        console.log(error);
         setError(error.response.data);
       }
     };
