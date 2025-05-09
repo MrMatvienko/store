@@ -1,4 +1,6 @@
 import React from 'react';
+import { LoaderContainer } from './Loader.styled';
+import { Hourglass } from 'react-loader-spinner';
 
 export const Loader = () => {
   return (

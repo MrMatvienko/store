@@ -1,9 +1,11 @@
 import React from 'react';
 import { ProductItem, Wrapper } from './MainPage.styled';
+import { Loader } from 'components/Loader/Loader';
 
-export const MainPage = ({ products }) => {
+export const MainPage = ({ products, isLoading }) => {
   return (
     <Wrapper>
+      {isLoading && <Loader />}
       {products &&
         products.map(product => {
           return (

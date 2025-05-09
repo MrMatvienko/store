@@ -7,7 +7,7 @@ import { CategoryList } from './CategoryList/CategoryList';
 import { useEffect } from 'react';
 
 export const App = () => {
-  // const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [products, setProducts] = useState(null);
 
@@ -16,9 +16,12 @@ export const App = () => {
       try {
         const data = await getProductCategory();
         const firstFive = data.slice(0, 5);
+        setIsLoading(true);
         setProducts(firstFive);
       } catch (error) {
         setError(error.response.data);
+      } finally {
+        setIsLoading(false);
       }
     };
     getAllCategory();
@@ -28,8 +31,8 @@ export const App = () => {
     <div>
       <Header />
       <Container>
-        <CategoryList products={products} error={error} />
-        <MainPage products={products} />
+        <CategoryList products={products} error={error} isLoading={isLoading} />
+        <MainPage products={products} isLoading={isLoading} />
       </Container>
     </div>
   );
