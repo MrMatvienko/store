@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import Header from './Header/Header';
 import { MainPage } from './MainPage/MainPage';
 // import { Container } from './global.styled';
-import { getProductCategory } from 'API/api';
+import { getAllProduct, getProductCategory } from 'API/api';
 // import { CategoryList } from './CategoryList/CategoryList';
 import { useEffect } from 'react';
 import { Layout } from './Layout/Layout';
@@ -11,6 +11,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState(null);
+  // const [product, setProduct] = useState(null)
 
   useEffect(() => {
     const getAllCategory = async () => {
@@ -26,6 +27,21 @@ export const App = () => {
       }
     };
     getAllCategory();
+  }, []);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      setIsLoading(true);
+      try {
+        const dataProduct = await getAllProduct();
+        console.log(dataProduct);
+      } catch (error) {
+        setError(error.response.data || error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getProduct();
   }, []);
 
   return (
