@@ -30,9 +30,8 @@ export const Layout = () => {
       <Header />
       <Container>
         <SideBar isLoading={isLoading} error={error} categories={categories} />
-        <main>
-          <Outlet context={{ categories, isLoading, error }} />
-        </main>
+
+        <Outlet context={{ categories, isLoading, error }} />
       </Container>
     </>
   );
