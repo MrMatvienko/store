@@ -1,7 +1,30 @@
-import React, { Component } from 'react';
-import { HeaderContainer } from './Header.styled';
-export default class Header extends Component {
-  render() {
-    return <HeaderContainer>STORE.UA</HeaderContainer>;
+import React from 'react';
+import { HeaderContainer, NavList } from './Header.styled';
+import { NavLink } from 'react-router-dom';
+import { styled } from 'styled-components';
+
+const StyledLink = styled(NavLink)`
+  color: white;
+
+  &.active {
+    color: orange;
   }
-}
+`;
+
+export const Header = () => {
+  return (
+    <HeaderContainer>
+      <span>STORE.UA</span>
+      <nav>
+        <NavList>
+          <li>
+            <StyledLink to="/">Home</StyledLink>
+          </li>
+          <li>
+            <StyledLink to="/favorites">Favorites</StyledLink>
+          </li>
+        </NavList>
+      </nav>
+    </HeaderContainer>
+  );
+};

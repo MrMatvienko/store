@@ -1,10 +1,8 @@
 import React from 'react';
-import { ProductItem, Wrapper } from './MainPage.styled';
-import { Loader } from 'components/Loader/Loader';
 
-export const MainPage = ({ categories, isLoading }) => {
+export const ProductList = () => {
   return (
-    <Wrapper>
+    <>
       {isLoading && <Loader />}
       {categories &&
         categories.map(product => {
@@ -20,6 +18,6 @@ export const MainPage = ({ categories, isLoading }) => {
             </ProductItem>
           );
         })}
-    </Wrapper>
+    </>
   );
 };

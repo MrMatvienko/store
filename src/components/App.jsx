@@ -1,58 +1,30 @@
-import React, { useState } from 'react';
-// import Header from './Header/Header';
-import { MainPage } from './MainPage/MainPage';
-// import { Container } from './global.styled';
-import { getAllProduct, getProductCategory } from 'API/api';
-// import { CategoryList } from './CategoryList/CategoryList';
-import { useEffect } from 'react';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
+import { Home } from 'pages/Home/Home';
+import { Favorites } from 'pages/Favorites/Favorites';
+// import { Main } from './Main/Main';
 
 export const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [categories, setCategories] = useState(null);
-  // const [product, setProduct] = useState(null)
-
-  useEffect(() => {
-    const getAllCategory = async () => {
-      setIsLoading(true);
-      try {
-        const data = await getProductCategory();
-        const firstFive = data.slice(0, 5);
-        setCategories(firstFive);
-      } catch (error) {
-        setError(error.response.data || error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getAllCategory();
-  }, []);
-
-  useEffect(() => {
-    const getProduct = async () => {
-      setIsLoading(true);
-      try {
-        const dataProduct = await getAllProduct();
-        console.log(dataProduct);
-      } catch (error) {
-        setError(error.response.data || error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getProduct();
-  }, []);
-
   return (
     <div>
-      <Layout categories={categories} error={error} isLoading={isLoading}>
-        <MainPage categories={categories} isLoading={isLoading} />
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
 
+// import Header from './Header/Header';
+// import { MainPage } from './MainPage/MainPage';
+// import { Container } from './global.styled';
+// import { getAllProduct, getProductCategory } from 'API/api';
+// import { CategoryList } from './CategoryList/CategoryList';
+// import { useEffect } from 'react';
+// import { Layout } from './Layout/Layout';
 // export default class App extends Component {
 //   state = {
 //     isLoading: false,
@@ -89,3 +61,40 @@ export const App = () => {
 //     );
 //   }
 // }
+
+//////////////////////
+// const [isLoading, setIsLoading] = useState(false);
+// const [error, setError] = useState(null);
+// const [categories, setCategories] = useState(null);
+// const [product, setProduct] = useState(null)
+
+// useEffect(() => {
+//   const getAllCategory = async () => {
+//     setIsLoading(true);
+//     try {
+//       const data = await getProductCategory();
+//       const firstFive = data.slice(0, 5);
+//       setCategories(firstFive);
+//     } catch (error) {
+//       setError(error.response.data || error.message);
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+//   getAllCategory();
+// }, []);
+
+// useEffect(() => {
+//   const getProduct = async () => {
+//     setIsLoading(true);
+//     try {
+//       const dataProduct = await getAllProduct();
+//       console.log(dataProduct);
+//     } catch (error) {
+//       setError(error.response.data || error.message);
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+//   getProduct();
+// }, []);
