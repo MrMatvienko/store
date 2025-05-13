@@ -1,6 +1,6 @@
 import React from 'react';
-import { HeaderContainer, NavList } from './Header.styled';
-import { NavLink } from 'react-router-dom';
+import { HeaderContainer, LinkLogo, NavList } from './Header.styled';
+import { Link, NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const StyledLink = styled(NavLink)`
@@ -14,7 +14,9 @@ const StyledLink = styled(NavLink)`
 export const Header = () => {
   return (
     <HeaderContainer>
-      <span>STORE.UA</span>
+      <Link to="/">
+        <LinkLogo>STORE.UA</LinkLogo>
+      </Link>
       <nav>
         <NavList>
           <li>

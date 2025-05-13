@@ -10,6 +10,11 @@ export const HeaderContainer = styled.header`
   box-shadow: 0px 5px 20px rgba(100, 0, 0, 0.1);
 `;
 
+export const LinkLogo = styled.span`
+  color: white;
+  text-decoration: none;
+`;
+
 export const NavList = styled.ul`
   display: flex;
   justify-content: center;
