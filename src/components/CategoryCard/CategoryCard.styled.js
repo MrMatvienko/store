@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const ProductItem = styled.li`
-  max-width: 200px;
+  max-width: 240px;
   width: 100%;
-  height: 230px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ export const ProductItem = styled.li`
   transition: all 300ms ease;
   &:hover,
   &:focus {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 `;
 
@@ -24,4 +24,9 @@ export const LinkText = styled.p`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`;
+
+export const Image = styled.img`
+  width: 240px;
+  height: 240px;
 `;

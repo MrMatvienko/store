@@ -8,13 +8,6 @@ export const ProductDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchProduct = async () => {
-      const numericId = Number(id); // 🔧 Конвертуємо id у число
-
-      // ❌ Якщо NaN (некоректне id) — не викликаємо API
-      if (isNaN(numericId)) {
-        console.error('ID не є числом:', id);
-        return;
-      }
       setIsLoading(true);
       try {
         const data = await getSingleProduct(id);
