@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 40px;
   padding: 40px 100px;
 `;

@@ -1,23 +1,22 @@
 import React from 'react';
+import { Image, Item, ProductWraper } from './ProductList.styled';
 
-export const ProductList = () => {
+export const ProductList = ({ products }) => {
+  if (!products || products.length === 0) {
+    return <p>У цій категорії наразі немає товарів.</p>;
+  }
+
   return (
-    <>
-      {isLoading && <Loader />}
-      {categories &&
-        categories.map(product => {
+    <ProductWraper>
+      {products &&
+        products.map(product => {
           return (
-            <ProductItem key={product.id}>
-              <img
-                src={product.image}
-                alt={product.name}
-                width={140}
-                height={140}
-              />
-              <p>{product.name}</p>
-            </ProductItem>
+            <Item key={product.id}>
+              <Image src={product.images} alt={product.title} />
+              <p>{product.title}</p>
+            </Item>
           );
         })}
-    </>
+    </ProductWraper>
   );
 };

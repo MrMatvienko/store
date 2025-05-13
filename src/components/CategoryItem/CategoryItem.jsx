@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ItemCategory } from './CategoryItem.styled';
 
 function CategoryItem({ product }) {
   return (
     <li>
-      <p>{product.name.toUpperCase()}</p>
+      <Link to={`/category/${product.id}`}>
+        <ItemCategory>{product.name.toUpperCase()}</ItemCategory>
+      </Link>
     </li>
   );
 }
