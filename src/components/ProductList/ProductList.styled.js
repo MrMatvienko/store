@@ -1,19 +1,25 @@
 import { styled } from 'styled-components';
 
 export const ProductWraper = styled.ul`
-  max-width: 910px;
   width: 100%;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
 `;
 
 export const Item = styled.li`
-  width: 160px;
-  height: 180px;
+  width: 162px;
+  height: auto;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+export const InfoWraper = styled.div`
+  padding: 1px 5px;
 `;
 export const Image = styled.img`
   width: 100%;

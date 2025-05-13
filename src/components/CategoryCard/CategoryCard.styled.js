@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const ProductItem = styled.li`
@@ -15,4 +16,12 @@ export const ProductItem = styled.li`
   &:focus {
     transform: scale(1.2);
   }
+`;
+
+export const LinkText = styled.p`
+  color: black;
+`;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

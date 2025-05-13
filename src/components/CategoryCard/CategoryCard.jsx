@@ -1,7 +1,7 @@
 import { Loader } from 'components/Loader/Loader';
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { ProductItem } from './CategoryCard.styled';
+import { LinkText, ProductItem, StyledLink } from './CategoryCard.styled';
 
 export const CategoryCard = () => {
   const { categories, isLoading } = useOutletContext();
@@ -11,15 +11,17 @@ export const CategoryCard = () => {
       {categories &&
         categories.map(product => {
           return (
-            <ProductItem key={product.id}>
-              <img
-                src={product.image}
-                alt={product.name}
-                width={140}
-                height={140}
-              />
-              <p>{product.name.toUpperCase()}</p>
-            </ProductItem>
+            <StyledLink key={product.id} to={`/category/${product.id}`}>
+              <ProductItem key={product.id}>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  width={140}
+                  height={140}
+                />
+                <LinkText>{product.name.toUpperCase()}</LinkText>
+              </ProductItem>
+            </StyledLink>
           );
         })}
     </>

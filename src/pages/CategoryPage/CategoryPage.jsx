@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import { getFilterCategory } from 'API/api';
 import { Loader } from 'components/Loader/Loader';
 import { ProductList } from 'components/ProductList/ProductList';
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const CategoryPage = () => {
@@ -26,9 +26,9 @@ export const CategoryPage = () => {
     getCategoryItem();
   }, [categoryId]);
   return (
-    <div>
+    <>
       {isLoading && <Loader />}
       <ProductList products={products} isLoading={isLoading} />
-    </div>
+    </>
   );
 };

@@ -2,8 +2,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = `https://api.escuelajs.co/api/v1`;
 
-export const getAllProduct = async () => {
-  const { data } = await axios('/products');
+export const getSingleProduct = async id => {
+  const { data } = await axios(`/products/${id}`);
   return data;
 };
 export const getProductCategory = async () => {

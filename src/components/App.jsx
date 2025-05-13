@@ -4,6 +4,7 @@ import { Layout } from './Layout/Layout';
 import { Home } from 'pages/Home/Home';
 import { Favorites } from 'pages/Favorites/Favorites';
 import { CategoryPage } from 'pages/CategoryPage/CategoryPage';
+import { ProductDetails } from 'pages/ProductDetails/ProductDetails';
 // import { Main } from './Main/Main';
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="category/:categoryId" element={<CategoryPage />} />
         </Route>
       </Routes>
