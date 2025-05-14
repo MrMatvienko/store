@@ -1,6 +1,6 @@
 import { CategoryList } from 'components/CategoryList/CategoryList';
 import React from 'react';
-import { WraperBar } from './SIdeBar.styled';
+import { WraperBar } from './SideBar.styled';
 
 export const SideBar = ({ categories, isLoading, error }) => {
   return (
