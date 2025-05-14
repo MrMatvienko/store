@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { Home } from 'pages/Home/Home';
-import { Favorites } from 'pages/Favorites/Favorites';
-import { CategoryPage } from 'pages/CategoryPage/CategoryPage';
-import { ProductDetails } from 'pages/ProductDetails/ProductDetails';
-// import { Main } from './Main/Main';
+
+const Home = lazy(() => import('../pages/Home'));
+const Favorites = lazy(() => import('../pages/Favorites'));
+const ProductDetails = lazy(() => import('../pages/ProductDetails'));
+const CategoryPage = lazy(() => import('../pages/CategoryPage'));
 
 export const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/products/:id" element={<ProductDetails />} />
-          <Route path="category/:categoryId" element={<CategoryPage />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="products/:id" element={<ProductDetails />} />
+        <Route path="category/:categoryId" element={<CategoryPage />} />
+      </Route>
+    </Routes>
   );
 };
 

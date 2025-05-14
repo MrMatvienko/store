@@ -1,9 +1,10 @@
+import React, { Suspense, useEffect, useState } from 'react';
 import { getProductCategory } from 'API/api';
 import { Footer } from 'components/Footer/Footer';
 import { Header } from 'components/Header/Header';
+import { Loader } from 'components/Loader/Loader';
 import { SideBar } from 'components/SideBar/SideBar';
 import { Container } from 'components/global.styled';
-import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -36,9 +37,14 @@ export const Layout = () => {
     <Wraper>
       <Header />
       <Container>
-        <SideBar isLoading={isLoading} error={error} categories={categories} />
-
-        <Outlet context={{ categories, isLoading, error }} />
+        <Suspense fallback={<Loader />}>
+          <SideBar
+            isLoading={isLoading}
+            error={error}
+            categories={categories}
+          />
+          <Outlet context={{ categories, isLoading, error }} />
+        </Suspense>
       </Container>
       <Footer />
     </Wraper>

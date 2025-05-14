@@ -4,7 +4,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ProductList } from 'components/ProductList/ProductList';
 import { useParams } from 'react-router-dom';
 
-export const CategoryPage = () => {
+export default function CategoryPage() {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,4 +31,4 @@ export const CategoryPage = () => {
       <ProductList products={products} isLoading={isLoading} />
     </>
   );
-};
+}

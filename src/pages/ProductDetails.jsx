@@ -2,7 +2,7 @@ import { getSingleProduct } from 'API/api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const ProductDetails = () => {
+export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,4 +42,4 @@ export const ProductDetails = () => {
       )}
     </div>
   );
-};
+}
