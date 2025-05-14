@@ -7,16 +7,15 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+const Wraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 export const Layout = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState(null);
-
-  const Wraper = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  `;
 
   useEffect(() => {
     const getAllCategory = async () => {
